@@ -1,15 +1,8 @@
-function add(firstOperand, secondOperand) {
-    return firstOperand + secondOperand;
-}
+let firstOperand, secondOperand, operator;
 
-function subtract(firstOperand, secondOperand) {
-    return firstOperand - secondOperand;
-}
-
-function multiply(firstOperand, secondOperand) {
-    return firstOperand * secondOperand;
-}
-
-function divide(firstOperand, secondOperand) {
-    return firstOperand / secondOperand;
+let operatations = {
+    "+" : (firstOperand, secondOperand) => firstOperand + secondOperand,
+    "-" : (firstOperand, secondOperand) => firstOperand - secondOperand,
+    "*" : (firstOperand, secondOperand) => firstOperand * secondOperand,
+    "/" : (firstOperand, secondOperand) => firstOperand / secondOperand,
 }
