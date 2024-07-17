@@ -1,8 +1,9 @@
 let firstOperand, secondOperand, operator;
 
-let operatations = {
+let operations = {
     "+" : (firstOperand, secondOperand) => firstOperand + secondOperand,
     "-" : (firstOperand, secondOperand) => firstOperand - secondOperand,
     "*" : (firstOperand, secondOperand) => firstOperand * secondOperand,
     "/" : (firstOperand, secondOperand) => firstOperand / secondOperand,
 }
+
