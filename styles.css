@@ -27,7 +27,7 @@
 #output {
     background-color: white;
     /* height: 85px; */
-    font-size: 65px;
+    font-size: 60px;
     text-align: right;
 }
 
@@ -60,11 +60,15 @@
     background-color: white;
 }
 
-.number-button {
+.active {
+    background-color: white;
+}
+
+.number-button, .decimal-button {
     background-color: grey;
 }
 
-.operation-button {
+.operation-button, .equal-button {
     background-color: orange;
 }
 
