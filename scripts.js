@@ -101,7 +101,7 @@ function updateCalculator(event) {
             operationPressed = true;
             break;
         case EQUAL_BUTTON_CLASS:
-            updateOutputWithEqual(output);
+            updateOutputWithEqual(output, operationPressed);
             operationPressed = false;
             break;
         case MISC_BUTTON_CLASS:
@@ -122,6 +122,11 @@ function isValidDisplayLength(output, buttonPressed) {
     }
 
     return getCurrentDisplayValue(output).length < maxDigits;
+}
+
+function isValidOperation(operationPressed) {
+    return isEmptyCalculatorStack() || containsResult() ||
+          (containsOperandAndOperator() && operationPressed);
 }
 
 function isEmptyDisplay(output) {
@@ -244,15 +249,15 @@ function updateOutputWithOperation(output, buttonPressed, buttonID) {
     } else if (containsResult()) {
         currentCalculatorStack.push(buttonPressed);
     } else if (containsOperandAndOperator()) {
-        updateOutputWithEqual(output, buttonPressed);
+        updateOutputWithEqual(output, operationPressed, buttonPressed);
     }
 }
 
-function updateOutputWithEqual(output, optionalButton) {
+function updateOutputWithEqual(output, operationPressed, optionalButton) {
     let secondOperand = +getCurrentDisplayValue(output);
     let firstOperand, operator, result;
 
-    if (isEmptyCalculatorStack() || containsResult()) {
+    if (isValidOperation(operationPressed)) {
         updateDisplayValue(output, "Error");
         return;
     }
